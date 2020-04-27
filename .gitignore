@@ -1,0 +1,13 @@
+.DS_Store
+.presentation.tex.swp
+Figures/.DS_Store
+presentation.aux
+presentation.fdb_latexmk
+presentation.fls
+presentation.log
+presentation.nav
+presentation.out
+presentation.pdf
+presentation.snm
+presentation.toc
+presentation.vrb
