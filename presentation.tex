@@ -131,20 +131,39 @@
     \begin{frame}[fragile]
         \frametitle{Background}
         \framesubtitle{What is {\lmr \LaTeX}?}
-
-            \lstset{language=Tex, }
+            An example:
+            \lstset{language=Tex, basicstyle=\ttfamily\scriptsize, frame=single }
 \begin{lstlisting}
 \documentclass{article}
 \begin{document}
-\section*{Part 1}
-A small example. \LaTeX is often used for math:
-\begin{equation}
-    y = \frac{1}{x}
-\end{equation}
-\section*{Part 2}
+    \section*{Part 1}
+        A small example. \LaTeX\ is often used for math:
+        \begin{equation}
+            y = \frac{1}{x}
+        \end{equation}
+    \section*{Part 2}
 \end{document}
 \end{lstlisting}
-        \includegraphics[width=0.5\textwidth]{figures/formath.png}
+        \begin{center}
+        \fbox{\includegraphics[width=0.5\textwidth]{figures/formath.png}}
+        \end{center}
+    \end{frame}
+
+    \subsection{Use cases}
+    \begin{frame}
+        \frametitle{Use cases}
+        \framesubtitle{What do I use it for?}
+        \begin{block}{What do I use {\lmr \TeX} for?}
+            \uncover<2->{(almost)} everything!
+            \uncover<3>{
+                \begin{itemize}
+                    \item This presentation is made with it
+                    \item When we publish we try to use it
+                    \item When I make course materials I use it
+                    \item The course book is made with it
+                \end{itemize}
+            }
+        \end{block}
     \end{frame}
 
     \section{Workflows}
@@ -168,8 +187,53 @@ A small example. \LaTeX is often used for math:
         \includegraphics[width=0.95\textwidth]{figures/overleaf.png}
     \end{frame}
     \section{General tips}
-    \begin{frame}
-    \end{frame}
+        \subsection{Document classes}
+            \begin{frame}
+                \frametitle{Document classes}
+                \framesubtitle{}
+            \end{frame}
+        \subsection{Floats}
+            \begin{frame}
+                \frametitle{Floats}
+                \framesubtitle{}
+            \end{frame}
+        \subsection{Small things}
+            \begin{frame}
+                \frametitle{Small things}
+                \framesubtitle{Writing numbers}
+                \begin{block}{Writing numbers}
+                
+                When you are writing numbers don't write them like:
+                \begin{center}
+                \begin{tabular}{rl}
+                \toprule
+                Example & Problem \\
+                \midrule
+                1000000 & unreadable  \\
+                1,000,000 & confusing \\
+                1.000.000 & confusing \\
+                \bottomrule
+                \end{tabular}
+                \end{center}
+                \end{block}
+            \end{frame}
+            \begin{frame}
+                \frametitle{Small things}
+                \framesubtitle{Writing numbers}
+                \begin{block}{Writing numbers}
+                Write them like:
+                \begin{center}
+                \begin{tabular}{rl}
+                \toprule
+                Example & Code \\
+                \midrule
+                1\,000\,000 & \texttt{1\textbackslash,000\textbackslash,000} \\
+                \bottomrule
+                \end{tabular}
+                \end{center}
+                \end{block}
+            \end{frame}
+
 
     \setbeamertemplate{background}{%
         \parbox[c][\paperheight]{\paperwidth}{%
