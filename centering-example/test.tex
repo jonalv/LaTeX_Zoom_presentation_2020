@@ -1,0 +1,55 @@
+\documentclass{memoir}[article]
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage[export]{adjustbox}
+\lstset{language=Tex, basicstyle=\ttfamily\scriptsize}
+\begin{document}
+\counterwithout{figure}{chapter}
+\begin{minipage}{0.49\textwidth}
+\begin{lstlisting}
+\begin{figure}
+    \begin{center}
+    \includegraphics
+      [width=0.7\textwidth]
+      {snail.png}
+    \end{center}
+    \caption{Snail on water surface}
+\end{figure}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\textwidth}
+\begin{lstlisting}
+    \begin{figure}
+        \centering
+        \includegraphics
+          [width=0.7\textwidth]
+          {snail.png}
+        \caption{Snail on water surface}
+    \end{figure}
+\end{lstlisting}
+\end{minipage}
+
+\fbox{\begin{minipage}[t]{0.49\textwidth}
+    \begin{figure}[H]
+        \begin{center}
+        \includegraphics
+          [width=0.7\textwidth]
+          {snail.png}
+        \end{center}
+        \caption{Snail on water surface}
+    \end{figure}
+\end{minipage}}
+\hfill
+\fbox{\begin{minipage}[t]{0.49\textwidth}
+    \begin{figure}[H]
+        \centering
+        \includegraphics
+          [width=0.7\textwidth]
+          {snail.png}
+        \caption{Snail on water surface}
+    \end{figure}
+\end{minipage}}
+\end{document}
+

@@ -11,3 +11,9 @@ presentation.pdf
 presentation.snm
 presentation.toc
 presentation.vrb
+centering-example/test.aux
+centering-example/test.fdb_latexmk
+centering-example/test.fls
+centering-example/test.log
+centering-example/test.pdf
+missfont.log
