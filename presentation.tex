@@ -85,6 +85,7 @@
 \renewcommand\UrlFont{\color{blue}}
 \renewcommand\thefootnote{\textcolor{uured}{\arabic{footnote}}}
 \lstset{language=Tex, basicstyle=\ttfamily\scriptsize, frame=single }
+\newcommand{\TikZ}{{\lmr Ti\textit{k}Z}}
 
 \title{{\lmr \LaTeX}}   
 \author{Jonathan Alvarsson} 
@@ -298,7 +299,7 @@
                 \framesubtitle{Many people have a bit of a love/hate relationship with floats}
                 \begin{block}{Floats}
                 If you use the \texttt{float} package you can give the
-                instruction \texttt{H} which turns of the floating all
+                instruction \texttt{H} which turns off the floating all
                 together. So it is a handy way of creating, \textit{e.g.}, a
                 figure that looks like a proper figure but does not float. 
                 \begin{center}
@@ -473,7 +474,127 @@ to keep things on the same line.
         {\herculanum To, for example, use a crazy font in shorter parts.}
     \end{block}
 }
+           
+            \begin{frame}
+                \frametitle{Small things}
+                \framesubtitle{Drawing and Plotting}
+                
+                 \TikZ\ meaning \textit{\TikZ\ ist kein Zeichenprogramm} (German for ``\TikZ\ is not a
+            drawing program'') can be used for making drawings and there is
+            {\lmr\textsc{pgfplots}} that can be used for making plots.
+
+            \end{frame}
+
+            \frame[fragile=singleslide]{
+            \frametitle{Small things}
+            \framesubtitle{\TikZ}
+            \centering
+
+            We can use \TikZ\ for some simple diagrams.
+            \begin{block}{I used \texttt{\textbackslash node} like:}
+            {\tiny
+            \Verb!\node (Foo) [text width=2cm, rectangle, draw, text centered]{Foo};!
+            \Verb!\node (Bar) [text width=2cm, rectangle, draw, text centered, right of=Foo]{Bar};!}
+            \end{block}
+
+            \begin{center}
+            \begin{tikzpicture}[node distance = 3cm]
+            \node (Foo) [text width=2cm, rectangle, draw, text centered]{Foo};
+            \node (Bar) [text width=2cm, rectangle, draw, text centered, right of=Foo]{Bar};
+            \end{tikzpicture}
+            \end{center}
             
+            \begin{block}{and \texttt{\textbackslash draw} like:}
+            {\tiny
+            \Verb!\draw [diamond-diamond] (Foo) to (Bar);!}
+            \end{block}
+            
+            \begin{center}
+            \begin{tikzpicture}[node distance = 3cm]
+            \node (Foo) [text width=2cm, rectangle, draw, text centered]{Foo};
+            \node (Bar) [text width=2cm, rectangle, draw, text centered, right of=Foo]{Bar};
+            \draw [diamond-diamond] (Foo) to (Bar);
+            \end{tikzpicture}
+            \end{center}
+        }
+        
+        \begin{frame}
+                \frametitle{Small things}
+                \framesubtitle{{\lmr\textsc{pgfplots}}}
+                \centering 
+                For example the plot below was constructed using {\lmr\textsc{pgfplots}} 
+               \begin{tikzpicture}
+                \begin{axis}[ymin=0,ymax=1.1,xmin=0,xmax=1.1,
+                xlabel=1$-$specificity,
+                ylabel=sensitivity,
+                axis lines=left,
+                width=0.5\textwidth,
+                ytick={0,0.5,1},
+                xtick={0,0.5,1},
+                tick label style = {font=\footnotesize},
+                ]
+                \addplot[color=black, fill=black, fill opacity=0.2] coordinates {
+                (0.0,0.0)
+                (0.05, 0.3)
+                (0.1,0.5)
+                (0.2,0.7)
+                (0.3,0.8)
+                (0.4,0.85)
+                (0.5,0.91)
+                (0.6,0.92)
+                (0.7,0.94)
+                (0.8,0.97)
+                (1.0,1.0)
+                (1.0,0.0)};
+                \addplot[color=black,ultra thin][domain=0:1]{x};
+                \node at (axis cs:0.5,0.5) [anchor=center, fill=white, fill opacity=0.5] {\hphantom{AUC}\vphantom{AUC}};
+                \node at (axis cs:0.5,0.5) [anchor=center] {AUC};
+                \end{axis}
+                \end{tikzpicture}
+        \end{frame}
+
+        \lstset{ language=TeX, 
+           basicstyle=\tiny\ttfamily, 
+           frame=single,
+           breaklines=true,
+           showstringspaces=false
+        }
+        \begin{frame}[fragile, plain]
+                \centering 
+                Here is the code for that plot\ldots
+\begin{lstlisting}
+\begin{tikzpicture}
+\begin{axis}[ymin=0,ymax=1.1,xmin=0,xmax=1.1,
+xlabel=1$-$specificity,
+ylabel=sensitivity,
+axis lines=left,
+width=0.5\textwidth,
+ytick={0,0.5,1},
+xtick={0,0.5,1},
+tick label style = {font=\footnotesize},
+]
+\addplot[color=black, fill=black, fill opacity=0.2] coordinates {
+(0.0,0.0)
+(0.05, 0.3)
+(0.1,0.5)
+(0.2,0.7)
+(0.3,0.8)
+(0.4,0.85)
+(0.5,0.91)
+(0.6,0.92)
+(0.7,0.94)
+(0.8,0.97)
+(1.0,1.0)
+(1.0,0.0)};
+\addplot[color=black,ultra thin][domain=0:1]{x};
+\node at (axis cs:0.5,0.5) [anchor=center, fill=white, fill opacity=0.5] {\hphantom{AUC}\vphantom{AUC}};
+\node at (axis cs:0.5,0.5) [anchor=center] {AUC};
+\end{axis}
+\end{tikzpicture}
+\end{lstlisting}
+        \end{frame}
+
+
             \appendix
             \section{Questions?}
             \subsection{Questions for me?}
