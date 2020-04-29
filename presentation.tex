@@ -26,6 +26,7 @@
 \usepackage{epigraph}
 \usepackage{listings}
 \usepackage{verbatim}
+\usepackage{hologo}
 \usepackage[absolute,overlay]{textpos}
 \usepackage[euler-digits,euler-hat-accent]{eulervm}
 %\logo{\pgfputat{\pgfxy(.45,.5)}{\pgfbox[center]{\includegraphics[width=1.7cm]{Figures/uu_shadow.pngu}}}}
@@ -71,6 +72,8 @@
             {Optima Regular}
 \newfontfamily\commentfont[]{Chalkboard}
 \newfontfamily\DejaSans{DejaVuSans.ttf}
+\newfontfamily\herculanum[]{Herculanum}
+\newfontfamily\timesfont[ItalicFont = Times New Roman Italic]{Times New Roman}
 \newcommand{\lmr}{\fontfamily{lmr}\selectfont}
 \newfontfamily\zA[Ligatures={Common, Rare}, Variant=1] {Zapfino}
 \newfontfamily\zB[Ligatures={Common, Rare}, Variant=2] {Zapfino}
@@ -386,11 +389,9 @@
                     \centering
                     \begin{minipage}{0.95\textwidth}
                     \begin{lstlisting}
-\begin{minipage}{0.45\textwidth}
-  When writing things like 125 cm and
-  things like see Figure 2 it is nice
-  to keep things on the same line.
-\end{minipage}             
+When writing things like 125 cm and
+things like see Figure 2 it is nice
+to keep things on the same line.
                     \end{lstlisting}
                     \end{minipage}
                 \end{minipage}
@@ -399,11 +400,9 @@
                     \centering
                     \begin{minipage}{0.95\textwidth}
                     \begin{lstlisting}
-\begin{minipage}{0.45\textwidth}
-  When writing things like 125~cm and
-  things like see Figure~2 it is nice
-  to keep things on the same line.
-\end{minipage}
+When writing things like 125~cm and
+things like see Figure~2 it is nice
+to keep things on the same line.
                     \end{lstlisting}
                     \end{minipage}
                 \end{minipage}
@@ -420,8 +419,80 @@
                 \end{block}
             \end{frame}
 
+            \begin{frame}
+                \frametitle{Small things}
+                \framesubtitle{Fonts}
+                \begin{center}
+                    Fonts is not really a ``Small things'' thing\ldots
+                
+                \uncover<2>{Nevertheless I am going to say something about it.}
+                \end{center}
+            \end{frame}
 
+            \begin{frame}
+                \frametitle{Small things}
+                \framesubtitle{Fonts}
+                Since {\lmr \LaTeX} is such an old thing the way we handle
+                fonts has changed a bit since back then. The program we
+                traditionally use (today) for compiling is called
+                {\lmr\hologo{pdfLaTeX}} but there are at least two other
+                programs that I can recommend {\lmr\hologo{LuaLaTeX}} and
+                {\lmr\hologo{XeLaTeX}} which are capable of handling modern
+                fonts directly. 
+            \end{frame}
+            
+            \begin{frame}
+                \frametitle{Small things}
+                \framesubtitle{Fonts}
+                \begin{block}{Fonts}
+                Both {\lmr\hologo{LuaLaTeX}} and
+                {\lmr\hologo{XeLaTeX}} use the \texttt{fontspec} package to specify fonts.  
+                {\lmr\hologo{XeLaTeX}} is even able to handle the multiple
+                glyphs found in the font:
+                
+                \centering
+                {\zA Zapfino}
+                \end{block}
+            \end{frame}
 
+            \frame[fragile=singleslide]{
+                \frametitle{Small things}
+                \framesubtitle{Fonts}
+    Use the \texttt{fontspec} package to:
+    \begin{block}{Set main font}
+        \footnotesize 
+        \Verb+\setmainfont[ItalicFont = Times New Roman Italic]{Times New Roman}+   
+
+        {\timesfont To change the main font in your text, including \textit{italics}.}
+    \end{block}
+    \centering or
+    \begin{block}{Create a toggle font command}
+        \Verb+\newfontfamily\herculanum{Herculanum}+
+
+        {\herculanum To, for example, use a crazy font in shorter parts.}
+    \end{block}
+}
+            \appendix
+            \section{Questions?}
+            \subsection{Questions for me?}
+            \begin{frame}
+                \frametitle{Questions?}
+                \framesubtitle{Questions for me?}
+               \centering
+               \Large Any questions? 
+
+               \uncover<2>{If I can't answer there is always\ldots}
+            \end{frame}
+
+            \subsection{\{{\lmr \TeX}\}}
+            \begin{frame}
+                \frametitle{Questions?}
+                  \begin{textblock}{1}(0,3)
+                     \includegraphics[width=1\paperwidth, align=c]{Figures/stackexchange.png}
+                  \end{textblock}
+                  \centering
+                \Large \url{https://tex.stackexchange.com/}
+            \end{frame}
 
     \setbeamertemplate{background}{%
         \parbox[c][\paperheight]{\paperwidth}{%
